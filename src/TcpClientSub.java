@@ -29,7 +29,7 @@ class TcpClientSub implements Runnable {
 			
 			SendData sendData1 = new SendData();
 
-			System.out.print("Input ID : >");	
+			System.out.print("Input ID : >");
 			String sendUserID = scin.next();
 
 			System.out.print("Input PW : >");

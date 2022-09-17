@@ -8,12 +8,14 @@ import java.io.ObjectInputStream;
 public class TcpServerSub implements Runnable {
 
 	private ArrayList<SooinTalkUser> connectUserList;
+	private ArrayList<SooinTalkUser> checkUserList;
 	private int userIndex;
 	private InputStream is;
 	byte[] byteRecv = new byte[5000];
 
-	public TcpServerSub(ArrayList<SooinTalkUser> inputUserList, int inputUserIndex) {
+	public TcpServerSub(ArrayList<SooinTalkUser> inputUserList, ArrayList<SooinTalkUser> dummyUserList, int inputUserIndex) {
 		connectUserList = inputUserList;
+		checkUserList = dummyUserList;
 		userIndex = inputUserIndex;
 
 		try {
@@ -44,6 +46,12 @@ public class TcpServerSub implements Runnable {
 					
 					System.out.println(recvData.getID());
 					System.out.println(recvData.getPw());
+					
+					for(int i = 0; i < checkUserList.size(); i++) {
+						if((checkUserList.get(i).getUserId().equals(recvData.getID())) && (checkUserList.get(i).getUserPw().equals(recvData.getPw()))) {
+							System.out.println("로그인에 성공했습니다.");
+						}
+					}
 					
 					//String strRecv = new String(byteRecv, 0, byteCount);
 					//System.out.println(strRecv);

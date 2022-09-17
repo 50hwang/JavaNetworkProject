@@ -7,10 +7,12 @@ import java.io.OutputStream;
 
 public class TcpServer {
 	
-	private static ArrayList<SooinTalkUser> dummyUserList;
 	private static ArrayList<SooinTalkUser> connectUserList;
+	private static ArrayList<SooinTalkUser> dummyUserList;
 	
 	public static void createDummyUserList() {
+		
+		
 		dummyUserList = new ArrayList<SooinTalkUser>();
 		
 		SooinTalkUser pkh = new SooinTalkUser();
@@ -21,10 +23,10 @@ public class TcpServer {
 		dummyUserList.add(pkh);
 
 		SooinTalkUser hsi = new SooinTalkUser();
-		pkh.setUserId("shi0902");
-		pkh.setUserPw("1234");
-		pkh.setUserName("Hwang Soo In");
-		pkh.setPayAmount(500000);
+		hsi.setUserId("shi0902");
+		hsi.setUserPw("1234");
+		hsi.setUserName("Hwang Soo In");
+		hsi.setPayAmount(500000);
 		dummyUserList.add(hsi);
 	}
 	
@@ -54,7 +56,7 @@ public class TcpServer {
 				
 				//socketList.add(socket);
 				
-				Thread threadSocket = new Thread(new TcpServerSub(connectUserList, connectUserList.size() - 1));
+				Thread threadSocket = new Thread(new TcpServerSub(connectUserList, dummyUserList, connectUserList.size() - 1));
 				threadSocket.start();
 				
 				//for(int i = 0; i < socketList.size(); i++) {
