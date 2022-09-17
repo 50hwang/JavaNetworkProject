@@ -1,6 +1,6 @@
 import java.io.Serializable;
 
-public class SendData implements Serializable{
+public class ClientData implements Serializable{
 	/* fields */
 	private static final long serialVersionUID = 1L;
 	

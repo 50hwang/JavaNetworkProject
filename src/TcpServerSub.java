@@ -42,7 +42,7 @@ public class TcpServerSub implements Runnable {
 					
 					Object recvObject = ois.readObject();
 					
-					SendData recvData = (SendData)recvObject;
+					ClientData recvData = (ClientData)recvObject;
 					
 					System.out.println(recvData.getID());
 					System.out.println(recvData.getPw());
@@ -50,6 +50,13 @@ public class TcpServerSub implements Runnable {
 					for(int i = 0; i < checkUserList.size(); i++) {
 						if((checkUserList.get(i).getUserId().equals(recvData.getID())) && (checkUserList.get(i).getUserPw().equals(recvData.getPw()))) {
 							System.out.println("로그인에 성공했습니다.");
+							
+							connectUserList.get(userIndex).setUserId(recvData.getID());
+							connectUserList.get(userIndex).setUserPw(recvData.getPw());
+							connectUserList.get(userIndex).setPayAmount(checkUserList.get(i).getPayAmount());
+							
+							System.out.println("ID : " + connectUserList.get(userIndex).getUserId() + ", Amount : " + connectUserList.get(userIndex).getPayAmount());
+							
 						}
 					}
 					

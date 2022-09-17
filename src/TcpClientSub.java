@@ -27,7 +27,7 @@ class TcpClientSub implements Runnable {
 		
 		try {
 			
-			SendData sendData1 = new SendData();
+			ClientData sendData1 = new ClientData();
 
 			System.out.print("Input ID : >");
 			String sendUserID = scin.next();
@@ -61,8 +61,8 @@ class TcpClientSub implements Runnable {
 				byte[] byteSend = new byte[100];
 				byteSend = subMessage.getBytes("UTF-8");
 				
-				os.write(byteSend);
-				os.flush();		
+				//os.write(byteSend);
+				//os.flush();		
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
