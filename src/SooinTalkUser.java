@@ -11,11 +11,19 @@ public class SooinTalkUser {
 	
 	private Socket userSocket;
 	private int userSocketIndex;
+	
+	private boolean isLogin;
 
 	/* constructors */
 
 	
 	/* methods */
+	public boolean isLogin() {
+		return isLogin;
+	}
+	public void setLogin(boolean isLogin) {
+		this.isLogin = isLogin;
+	}
 	public String getUserId() {
 		return userId;
 	}

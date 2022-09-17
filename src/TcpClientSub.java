@@ -28,6 +28,7 @@ class TcpClientSub implements Runnable {
 		try {
 			
 			ClientData sendData1 = new ClientData();
+			sendData1.setHeaderType(0xFF01);    // FF01 - Log in
 
 			System.out.print("Input ID : >");
 			String sendUserID = scin.next();
