@@ -28,8 +28,15 @@ class TcpClientSub implements Runnable {
 		try {
 			
 			SendData sendData1 = new SendData();
-			sendData1.setID("pkh1115");
-			sendData1.setPw("1234");
+
+			System.out.print("Input ID : >");
+			String sendUserID = scin.next();
+
+			System.out.print("Input PW : >");
+			String sendUserPW = scin.next();
+			
+			sendData1.setID(sendUserID);
+			sendData1.setPw(sendUserPW);
 					
 			byte serializedLogin[];
 			ByteArrayOutputStream baosLogin = new ByteArrayOutputStream();
